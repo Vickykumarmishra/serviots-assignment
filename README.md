@@ -73,7 +73,6 @@ src/
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd user-management-dashboard
 
 # Install dependencies
 npm install
