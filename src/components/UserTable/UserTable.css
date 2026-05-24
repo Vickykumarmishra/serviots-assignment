@@ -1,0 +1,294 @@
+.user-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.user-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.user-table th {
+  padding: 0.875rem 1rem;
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.user-table th:first-child {
+  border-radius: 12px 0 0 0;
+}
+
+.user-table th:last-child {
+  border-radius: 0 12px 0 0;
+}
+
+.user-table td {
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+  color: var(--color-text);
+}
+
+.user-table__row {
+  transition: background 0.15s;
+}
+
+.user-table__row:hover {
+  background: var(--color-hover);
+}
+
+.user-table__row:last-child td {
+  border-bottom: none;
+}
+
+/* User cell with avatar */
+.user-table__user-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 220px;
+}
+
+.user-table__avatar {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--color-primary-alpha);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-table__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.user-table__avatar-fallback {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.user-table__user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.user-table__name {
+  font-weight: 600;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-table__email {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.user-table__phone {
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+.user-table__company {
+  white-space: nowrap;
+  color: var(--color-text-secondary);
+}
+
+/* Role badge */
+.user-table__role-badge {
+  display: inline-block;
+  padding: 0.2rem 0.625rem;
+  border-radius: 20px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.user-table__role-badge--admin {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+.user-table__role-badge--moderator {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.user-table__role-badge--user {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.user-table__age {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Action buttons */
+.user-table__actions {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.user-table__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.user-table__action-btn:hover {
+  border-color: transparent;
+}
+
+.user-table__action-btn--view:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+.user-table__action-btn--edit:hover {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.user-table__action-btn--delete:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* Empty state */
+.user-table-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  border: 1px dashed var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+.user-table-empty__icon {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.user-table-empty__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 0.5rem;
+}
+
+.user-table-empty__desc {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 320px;
+}
+
+/* Mobile card layout */
+@media (max-width: 768px) {
+  .user-table-wrapper {
+    border: none;
+    background: transparent;
+  }
+
+  .user-table,
+  .user-table thead,
+  .user-table tbody,
+  .user-table th,
+  .user-table td,
+  .user-table tr {
+    display: block;
+  }
+
+  .user-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .user-table__row {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    padding: 1rem;
+  }
+
+  .user-table__row:hover {
+    background: var(--color-surface);
+  }
+
+  .user-table td {
+    padding: 0.375rem 0;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .user-table td::before {
+    content: attr(data-label);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-text-secondary);
+    margin-right: 1rem;
+    flex-shrink: 0;
+  }
+
+  .user-table__user-cell {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .user-table__actions {
+    justify-content: flex-end;
+    width: 100%;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+    margin-top: 0.5rem;
+  }
+}
